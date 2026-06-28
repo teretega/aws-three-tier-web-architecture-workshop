@@ -1,0 +1,8 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="30" cy="30" r="25" fill="#1e40af" stroke="#3b82f6" stroke-width="2"/>
+  <path d="M20 25 L25 20 L30 25 L35 20 L40 25 L35 30 L30 35 L25 30 L20 25 Z" fill="white"/>
+  <path d="M15 30 L20 25 M40 25 L45 30" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <text x="70" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e40af">EMRAAY</text>
+  <text x="70" y="40" font-family="Arial, sans-serif" font-size="12" font-weight="normal" fill="#64748b">AIRLINES</text>
+  <text x="70" y="50" font-family="Arial, sans-serif" font-size="8" font-weight="normal" fill="#94a3b8">LUXURY PRIVATE CHARTER</text>
+</svg>
