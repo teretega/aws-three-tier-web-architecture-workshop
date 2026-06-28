@@ -1,0 +1,56 @@
+services:
+  mysql:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: ab3
+    volumes:
+      - ab3_mysql_data:/var/lib/mysql
+      - ./application-code/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ppassword"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+  app-tier:
+    build:
+      context: ./application-code/app-tier
+    environment:
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PWD: password
+      DB_DATABASE: ab3
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "4000:4000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://127.0.0.1:4000/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  web-tier:
+    build:
+      context: ./application-code/web-tier
+      args:
+        REACT_APP_API_URL: /api
+    ports:
+      - "8080:80"
+    depends_on:
+      app-tier:
+        condition: service_healthy
+
+volumes:
+  ab3_mysql_data:

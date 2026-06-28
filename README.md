@@ -20,6 +20,20 @@ In this architecture, a public-facing Application Load Balancer forwards client 
 
 See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US)
 
+## Student Assignment (EC2 + RDS)
+
+Step-by-step deployment instructions for students are in [ASSIGNMENT.md](ASSIGNMENT.md).
+
+## Local Development (Docker — optional)
+
+Instructors can run the full stack locally:
+
+```bash
+docker compose up --build -d
+```
+
+Open **http://localhost:8080/#/**
+
 
 ## Security
 

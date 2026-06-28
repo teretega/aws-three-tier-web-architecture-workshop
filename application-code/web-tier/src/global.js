@@ -1,41 +1,35 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
-  html, body {
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  html, body, #root {
     margin: 0;
     padding: 0;
+    min-height: 100vh;
   }
+
   *, *::after, *::before {
     box-sizing: border-box;
   }
+
   body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: ${({ theme }) => theme.primaryDark};
-    color: ${({ theme }) => theme.primaryLight};
-    height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     text-rendering: optimizeLegibility;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    -webkit-font-smoothing: antialiased;
   }
-  h1 {
-    font-size: 2rem;
-    text-align: center;
-    text-transform: uppercase;
-  }
-  img {
-    border-radius: 5px;
-    height: auto;
-    width: 10rem;
-  }
-  div {
-    text-align: center;
-  }
-  small {
-    display: block;
-  }
+
   a {
-    color: ${({ theme }) => theme.primaryHover};
+    color: inherit;
     text-decoration: none;
   }
-`
+
+  button, input, select, textarea {
+    font-family: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+`;
