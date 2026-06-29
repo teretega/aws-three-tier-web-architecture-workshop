@@ -43,3 +43,7 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
 
+
+## Our Deployment & Architecture Decisions
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for our actual implementation, how it compares to the reference architecture above, and why we made production-minded changes (private-subnet RDS, pm2 process management, Nginx serving a static build).
